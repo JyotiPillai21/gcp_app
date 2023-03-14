@@ -69,7 +69,7 @@ def run(argv=None, save_main_session=True):
   parser.add_argument(
       '--input',
       dest='input',
-      default='gs://my-testdatabucket/TestingFile.txt',
+      default='gs://gcp-demobucket/TestingFile.txt',
       help='Input file to process.')
   parser.add_argument(
       '--output',
