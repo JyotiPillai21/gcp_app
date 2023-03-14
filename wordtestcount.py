@@ -75,7 +75,7 @@ def run(argv=None, save_main_session=True):
       '--output',
       dest='output',
       required=True,
-      help='Output file to write results to.')
+      help='Output file to write results to...')
   known_args, pipeline_args = parser.parse_known_args(argv)
 
   # We use the save_main_session option because one or more DoFn's in this
