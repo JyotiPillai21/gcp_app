@@ -4,5 +4,5 @@ github:
   owner: JyotiPillai21
   name: gcp_app
   push_request:
-    branch: main
+    branch: master
 filename: cloudbuild.yaml
