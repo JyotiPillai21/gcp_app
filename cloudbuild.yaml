@@ -1,8 +1,8 @@
-name: my-push-trigger
+name: gcp_app
 description: "Trigger on any Push targeting master"
 github:
-  owner: GoogleCloudPlatform
-  name: cloud-builders
+  owner: JyotiPillai21
+  name: gcp_app
   push_request:
-    branch: master
+    branch: main
 filename: cloudbuild.yaml
