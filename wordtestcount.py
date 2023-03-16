@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-"""A word-counting workflow...."""
+"""A word-counting workflow.."""
 
 # pytype: skip-file
 
