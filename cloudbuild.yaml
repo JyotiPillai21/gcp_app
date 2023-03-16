@@ -1,15 +1,8 @@
-steps:
-- name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'gcr.io/${PROJECT_ID}/${_SERVICE_NAME}:$SHORT_SHA', '.' ]
-- name: 'gcr.io/cloud-builders/docker'
-  args: [ 'push', 'gcr.io/${PROJECT_ID}/${_SERVICE_NAME}:$SHORT_SHA']
-- name: 'gcr.io/cloud-builders/gcloud'
-  args:
-    - 'run'
-    - 'deploy'
-    - '${_SERVICE_NAME}'
-    - '--region=${_REGION}'
-    - '--platform=managed'
-    - '--allow-unauthenticated'
-    - '--service-account=${_SERVICE_ACCOUNT_EMAIL}'
-    - '--image=gcr.io/${PROJECT_ID}/${_SERVICE_NAME}:$SHORT_SHA'
+name: my-push-trigger
+description: "Trigger on any Push targeting master"
+github:
+  owner: GoogleCloudPlatform
+  name: cloud-builders
+  push_request:
+    branch: master
+filename: cloudbuild.yaml
