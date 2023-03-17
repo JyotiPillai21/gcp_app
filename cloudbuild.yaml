@@ -1,0 +1,24 @@
+steps:
+  - id: "Activate virtual environment venv"
+    name: 'gcr.io/gcpproject-380209/dataflow-python3:latest'
+    entrypoint: '/bin/bash'
+    args: [ '-c', 'source /venv/bin/activate' ]
+    waitFor: ['-']
+
+  - id: "Create dataflow template"
+    name: 'gcr.io/gcpproject-380209/dataflow-python3:latest'
+    entrypoint: 'python'
+    args: [ '-m', 'main',
+         "--job_name=wordtestcount",
+         "--project=gcpproject-380209", 
+         "--region=us-central1",
+         "--template_location=gs://gcpproject-380209-dataflow-templates/my-template/templates/template_test",
+         "--staging_location=gs://gcp-demobucket/staging/",
+         "--temp_location=gs://gcp-demobucket/tmp/",
+         "--runner=DataflowRunner",
+         "--setup_file='./setup.py'",
+         "--autoscaling_algorithm=NONE"
+         ]
+    waitFor: [
+      'Activate virtual environment venv'
+      ]
