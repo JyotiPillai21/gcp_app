@@ -1,10 +1,4 @@
 steps:
-  - id: "Activate virtual environment venv"
-    name: 'gcr.io/gcpproject-380209/dataflow-python3:latest'
-    entrypoint: '/bin/bash'
-    args: [ '-c', 'source /venv/bin/activate' ]
-    waitFor: ['-']
-
   - id: "Create dataflow template"
     name: 'gcr.io/gcpproject-380209/dataflow-python3:latest'
     entrypoint: 'python'
