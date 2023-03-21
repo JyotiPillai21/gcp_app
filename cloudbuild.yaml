@@ -1,7 +1,11 @@
+name: Word Count
+
+on:
+  push:
+    branches: [main]
+
 steps:
   - id: "Create dataflow template"
-    name: 'gcr.io/gcpproject-380209/dataflow-python3:latest'
-    entrypoint: 'python'
     args: [ '-m', 'main',
          "--job_name=wordtestcount",
          "--project=gcpproject-380209", 
