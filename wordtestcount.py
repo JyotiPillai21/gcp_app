@@ -64,7 +64,7 @@ class WordExtractingDoFn(beam.DoFn):
 
 
 def run(argv=None, save_main_session=True):
-  """Main entry point; defines and runs the wordcount pipeline."""""
+  """Main entry point; defines and runs the wordcount pipeline."""
   parser = argparse.ArgumentParser()
   parser.add_argument(
       '--input',
