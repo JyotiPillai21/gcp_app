@@ -1,18 +1,20 @@
-name: Word Count
-
-on:
-  push:
-    branches: [main]
-
 steps:
+  - id: "Activate virtual environment venv"
+    name: 'gcr.io/your_project_id/dataflow-python3:latest'
+    entrypoint: '/bin/bash'
+    args: [ '-c', 'source /venv/bin/activate' ]
+    waitFor: ['-']
+
   - id: "Create dataflow template"
+    name: 'gcr.io/your_project_id/dataflow-python3:latest'
+    entrypoint: 'python'
     args: [ '-m', 'main',
          "--job_name=wordtestcount",
-         "--project=gcpproject-380209", 
+         "--project=gcpproject-380209",
          "--region=us-central1",
-         "--template_location=gs://gcp-demobucket/templates/Template_Test/",
-         "--staging_location=gs://gcp-demobucket/staging/",
-         "--temp_location=gs://gcp-demobucket/tmp/",
+         "--template_location=gs://gcp-demobucket/my-template/templates/template_test",
+         "--staging_location=gs://gcp-demobucket/my-template/staging/",
+         "--temp_location=gs://gcp-demobucket/my-template/temp/",
          "--runner=DataflowRunner",
          "--setup_file='./setup.py'",
          "--autoscaling_algorithm=NONE"
