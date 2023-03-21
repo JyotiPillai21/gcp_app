@@ -1,9 +1,3 @@
-name: Word Count
-
-on:
-  push:
-    branches: [main]
-
 steps:
   - id: "Create dataflow template"
     args: [ '-m', 'main',
